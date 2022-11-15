@@ -6,6 +6,7 @@ const { pages, cssFiles } = require('./utils');
 module.exports = {
   entry: [
     './src/index.ts',
+    './src/css/index.css',
     ...cssFiles
   ],
   devtool: 'inline-source-map',
