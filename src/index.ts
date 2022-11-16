@@ -2,12 +2,28 @@ import gsap from 'gsap';
 import barba from '@barba/core';
 import { pageLoadLeave, pageLoadEnter } from './animations';
 
+function loadDomMethods() {
+    const NUM_PARTICLES = 250;
+
+    const snowContainer = document.querySelector('.snow-container');
+    
+    for(let i = 0; i < NUM_PARTICLES; i++) {
+        let snowParticle = document.createElement('div');
+    
+        snowParticle.classList.add('snow');
+    
+        snowContainer.appendChild(snowParticle);
+    }
+}
+
 barba.init({
     transitions: [
         {
-            once(data) {
+            once() {
+                loadDomMethods();
+
                 const pageLoadContainer = document.querySelector('.page-load-container');
-                const betweenPageContainer = document.querySelector('.between-page-container');
+                const betweenPageContainer = document.querySelector('.between-page-container-black');
                 const landingContainer = document.querySelector('.landing');
 
                 betweenPageContainer.classList.add('hidden');

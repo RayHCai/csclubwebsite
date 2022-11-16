@@ -3,41 +3,54 @@ import gsap from 'gsap';
 import { getWidth } from './helpers';
 
 export function pageLoadLeave(data: any, done: any) {
-    const pageLoadContainer = document.querySelector('.between-page-container');
-    const landingContainer = document.querySelector('.landing');
+    const page = data.next.url.hash;
+
+    const betweenPageLoadContainer = document.querySelector('.between-page-container-black');
+    const pageLoadContainer = document.querySelector('.page-load-container');
+    const containers = Array.from(document.querySelectorAll('.container'));
+
+    pageLoadContainer.classList.add('hidden');
 
     const pageLoadLeaveTl = gsap.timeline();
 
-    pageLoadContainer.classList.remove('hidden');
+    betweenPageLoadContainer.classList.remove('hidden');
 
-    pageLoadLeaveTl.from(pageLoadContainer, {
+    pageLoadLeaveTl.from(betweenPageLoadContainer, {
         x: -getWidth(),
         duration: 1,
         ease: 'power4',
-        onComplete: () => {
-            landingContainer.classList.add('hidden');
-
-            done();
-        }
+        clearProps: 'all',
+        onComplete: () => done()
     });
 }
 
 export function pageLoadEnter(data: any) {
-    const pageLoadContainer = document.querySelector('.between-page-container');
-    const landingContainer = document.querySelector('.landing');
+    const page = data.next.url.hash;
+
+    const betweenPageLoadContainer = document.querySelector('.between-page-container-black');
+    const pageLoadContainer = document.querySelector('.page-load-container');
+    const containers = Array.from(document.querySelectorAll('.container'));
+
+    containers.filter(
+        (c: HTMLDivElement) => {
+            if(page) return c.id !== page
+            else return c.id
+        }
+    ).forEach(
+        (c: HTMLDivElement) => c.classList.add('hidden')
+    );
+
+    pageLoadContainer.classList.add('hidden');
 
     const pageLoadLeaveTl = gsap.timeline();
 
-    pageLoadContainer.classList.remove('hidden');
-    landingContainer.classList.add('hidden');
-
-    pageLoadLeaveTl.from(pageLoadContainer, {
-        x: getWidth(),
+    pageLoadLeaveTl.to(betweenPageLoadContainer, {
+        x: -getWidth(),
         duration: 1,
         ease: 'power4',
         clearProps: 'all',
         onComplete: () => {
-            pageLoadContainer.classList.add('hidden');
+            betweenPageLoadContainer.classList.add('hidden');
         }
     });
 }

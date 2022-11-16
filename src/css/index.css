@@ -2,7 +2,7 @@
 
 :root {
     --black: rgb(31, 31, 31);
-    --white: rgb(237, 237, 237);
+    --white: rgb(231, 231, 231);
     --blue: rgb(36, 36, 148);
     --gold: rgb(217, 181, 0);
 }
@@ -21,6 +21,10 @@ body {
 
 html {
     scroll-behavior: smooth;
+}
+
+html, body {
+    overflow: hidden;
 }
 
 .hidden {
