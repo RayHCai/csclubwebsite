@@ -30,3 +30,72 @@ html, body {
 .hidden {
     display: none;
 }
+
+footer {
+    z-index: 999;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    
+    margin: 20px;
+}
+
+footer a {
+    text-decoration: none;
+    transition: 0.2s;
+    font-size: 25px;
+
+    margin-left: 40px;
+}
+
+footer a:hover {
+    color: var(--gold) !important;
+}
+
+#openNavButton {
+    position: fixed;
+    cursor: pointer;
+    transition: 0.15s;
+    font-size: 23px;
+    margin: 20px;
+    z-index: 999;
+    color: var(--black);
+}
+
+#openNavButton:hover {
+    color: var(--gold) !important;
+}
+
+nav {
+    height: 100vh;
+    z-index: 999;
+    position: fixed;
+    background: none;
+    width: 15%;
+}
+
+nav i {
+    cursor: pointer;
+    transition: 0.15s;
+    font-size: 20px;
+    margin: 20px;
+}
+
+nav i:hover {
+    color: var(--gold) !important;
+}
+
+nav a {
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+    padding: 20px;
+    margin-bottom: 40px;
+    display: block;
+}
+
+nav a:hover {
+    background: var(--gold);
+    color: var(--black) !important;
+}

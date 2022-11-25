@@ -8,18 +8,30 @@
         <link rel="stylesheet" href="main.css" />
         <link rel="stylesheet" href="index.css" />
         <link rel="stylesheet" href="snow.css" />
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
         <link rel="shortcut icon" type="image/png" href="https://www.egrps.org/images/logo.png" />
         
-        <title>home | egr cs club</title>
+        <title>egr cs club</title>
     </head>
 
     <body data-barba="wrapper">
-        <!-- put here content that will not change
-        between your pages, like <header> or <nav> -->
-
         <div class="snow-container"></div>
+
+        <i id="openNavButton" class="fa-solid fa-bars"></i>
+
+        <nav class="hidden">
+            <div class="hidden" id="navContentContainer">
+                <i class="fa-solid fa-x"></i>
+
+                <div>
+                    <a href="#">Home</a>
+    
+                    <a href="#about">About</a>
+                </div>
+            </div>
+        </nav>
 
         <main data-barba="container" data-barba-namespace="home">
             <div class="page-load-container">
@@ -49,10 +61,26 @@
                 </div>
 
                 <section id="about" class="container">
-                    
+                    <div class="about-content">
+                        <h1>About</h1>
+                        
+                        <p>
+                            EGR CS Club is proud to be the only computer science community at the East Grand Rapids Highschool.
+                        </p>
+                    </div>
                 </section>
             </div>
         </main>
+
+        <footer>
+            <a href="https://www.instagram.com/egrcodingclub/" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://discord.gg/VsC84vHt" target="_blank">
+                <i class="fa-brands fa-discord"></i>
+            </a> 
+        </footer>
 
         <script src="bundle.js"></script>
     </body>
